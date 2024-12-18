@@ -1,0 +1,21 @@
+{
+  "name": "plaster",
+  "version": "0.1.0",
+  "description": "simple frontend to pastebin",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "pastebin",
+    "viewer",
+    "nodejs",
+    "express"
+  ],
+  "author": "Your Name",
+  "license": "CC0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7"
+  }
+}

@@ -1,12 +1,11 @@
+version: '3.8'
+
 services:
   plaster:
-    image: docker.io/library/plasterbin:latest
-    container_name: plaster
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "35200:3000"  #modify first port if needed
+      - "35200:3000"  # Bind container's port 3000 to the host's port 3000
     restart: always
-    networks:
-      - plaster-network
-networks:
-  plaster-network:
-    driver: bridge
+    container_name: plaster

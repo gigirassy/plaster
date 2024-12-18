@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "35200:3000"  # Bind container's port 3000 to the host's port 3000
+      - "35200:3000"  # change host port if needed
     restart: always
     container_name: plaster

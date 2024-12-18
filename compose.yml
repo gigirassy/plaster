@@ -7,13 +7,6 @@ services:
     restart: always
     networks:
       - plaster-network
-
-  watchtower:
-    image: ghcr.io/containrrr/watchtower
-    restart: unless-stopped
-    command: --cleanup --scope cobalt --interval 900 --include-restarting
-    volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
 networks:
   plaster-network:
     driver: bridge

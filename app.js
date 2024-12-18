@@ -1,3 +1,12 @@
+const express = require('express');
+const fetch = require('node-fetch');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.static('public'));
+
+// Route to fetch Pastebin raw text data using the Paste ID
 app.get('/fetch-paste', async (req, res) => {
     const { url } = req.query;
     if (!url) {
@@ -21,4 +30,9 @@ app.get('/fetch-paste', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message }); // Ensure error is JSON
     }
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

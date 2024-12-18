@@ -10,8 +10,8 @@ document.getElementById('fetchBtn').addEventListener('click', async () => {
             throw new Error(errorData.error || 'Unknown error occurred');
         }
 
-        const data = await response.json();
-        output.textContent = data.text;
+        const text = await response.text(); // Always plain text
+        output.textContent = text; // Display raw text
     } catch (error) {
         output.textContent = `Error: ${error.message}`;
     }

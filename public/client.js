@@ -5,8 +5,7 @@ document.getElementById('fetchBtn').addEventListener('click', () => {
     const pasteId = getPasteId(urlInput);
     
     if (pasteId) {
-        // Redirect to the raw paste route on your server
-        window.location.href = `http://localhost:3000/${pasteId}`;
+        window.location.href = `/${pasteId}`;
     } else {
         alert('Please enter a valid Pastebin URL.');
     }

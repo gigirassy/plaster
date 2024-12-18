@@ -3,28 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>plaster</title>
+    <title>Pastebin Viewer</title>
     <style>
+        /* Default Light Mode */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #0066cc;
+            --border-color: #ddd;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1e1e1e;
+                --text-color: #ffffff;
+                --link-color: #4db8ff;
+                --border-color: #444;
+            }
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            text-align:center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
+
+        input, button {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+
         #output {
             white-space: pre-wrap;
-            background: #f4f4f4;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
             padding: 10px;
-            border: 1px solid #ddd;
             border-radius: 5px;
+        }
+
+        a {
+            color: var(--link-color);
         }
     </style>
 </head>
 <body>
     <h1>plaster</h1>
+    <p>Alternative frontend for Pastebin.</p>
+    <p>All issues regarding paste content should be reported to <a href="https://pastebin.com">Pastebin</a>. In addition, if you want a real alternative to Pastebin, <a href="https://privatebin.info">check out Privatebin!</a></p>
     <input type="text" id="pasteUrl" placeholder="Enter Pastebin URL">
     <button id="fetchBtn">fetch!</button>
     <div id="output"></div>
-
     <script src="client.js"></script>
 </body>
 </html>

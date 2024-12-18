@@ -5,12 +5,13 @@ document.getElementById('fetchBtn').addEventListener('click', async () => {
 
     try {
         const response = await fetch(`/fetch-paste?url=${encodeURIComponent(urlInput)}`);
-        const data = await response.json();
-        if (data.error) {
-            output.textContent = `Error: ${data.error}`;
-        } else {
-            output.textContent = data.text;
+        if (!response.ok) {
+            const errorData = await response.json(); // Parse error JSON
+            throw new Error(errorData.error || 'Unknown error occurred');
         }
+
+        const data = await response.json();
+        output.textContent = data.text;
     } catch (error) {
         output.textContent = `Error: ${error.message}`;
     }

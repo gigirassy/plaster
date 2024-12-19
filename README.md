@@ -6,5 +6,3 @@ That's all.
 | link                      | country | notes             |
 |---------------------------|---------|-------------------|
 | https://plaster.blitzw.in | 🇩🇰      | official instance |
-
-![main page of Plaster](https://github.com/user-attachments/assets/dc259cf4-3254-4fdf-ad12-195e92caeb29)

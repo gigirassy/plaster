@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   plaster:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/gigirassy/plaster
     ports:
       - "35200:3000"  # change host port if needed
     restart: always

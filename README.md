@@ -2,6 +2,10 @@
 Fetches raw data and displays it. Took like 20 minutes to make the first build.
 It's extremely simple, so it's under CC0. If you want to improve it, simply submit a pull request.
 That's all.
+Disclaimer: The first build was made using a language learning model, and then significantly tweaked by a human being (me). This might be outside of people's comfort zones, so I'd thought it'd be important to note this.
+## To do:
+* Implement (togglable!) fetching of paste views, creator usernames, favorites, and expiration/creation dates.
+* Togglable, just-for-fun ASCII art of TFA characters on front page top-right corner.
 ### Instances
 | link                      | country | notes             |
 |---------------------------|---------|-------------------|

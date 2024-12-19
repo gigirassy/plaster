@@ -5,7 +5,8 @@ That's all.
 Disclaimer: The first build was made using a language learning model, and then significantly tweaked by a human being (me). This might be outside of people's comfort zones, so I'd thought it'd be important to note this.
 ## To do:
 * Implement (togglable!) fetching of paste views, creator usernames, favorites, and expiration/creation dates.
-* Togglable, just-for-fun ASCII art of TFA characters on front page top-right corner.
+* Togglable, just-for-fun ASCII art of TFA characters on front page bottom-right corner. Owners can also change this ASCII art by mounting TXT files as a volume.
+* "Instant copy to clipboard" togglable via an ENV variable or a cookie on front page.
 ### Instances
 | link                      | country | notes             |
 |---------------------------|---------|-------------------|

@@ -8,7 +8,7 @@ services:
     environment:
       AUTO_COPY_DEFAULT: "false" # if enabled, this will automatically copy paste contents to the clipboard on main page
       SHOW_ASCII_ART: "true" # if disabled, ascii art on front page won't show up
-    volumes:
+#    volumes:
      # - ./ascii:/app/ascii # allows for custom ascii art via folder mounting
     restart: always
     container_name: plaster

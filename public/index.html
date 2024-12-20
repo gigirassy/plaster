@@ -46,6 +46,34 @@
         a {
             color: var(--link-color);
         }
+
+        #asciiArtContainer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 1rem; /* Default font size for desktop */
+        }
+        
+        @media (max-width: 768px) {
+            /* For tablets and small screens */
+            #asciiArtContainer {
+                font-size: 0.8rem; /* Slightly smaller font */
+                padding: 8px;      /* Reduced padding */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* For mobile devices */
+            #asciiArtContainer {
+                font-size: 0.6rem; /* Smaller font size for mobile */
+                padding: 5px;      /* Minimal padding */
+            }
+        }
     </style>
 </head>
 <body> <div class="main">

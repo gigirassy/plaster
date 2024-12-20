@@ -3,11 +3,14 @@ version: '3.8'
 services:
   plaster:
     image: ghcr.io/gigirassy/plaster
+
     ports:
       - "35200:3000"  # change host port if needed
+
     environment:
-      AUTO_COPY_DEFAULT: "false" # if enabled, this will automatically copy paste contents to the clipboard on main page
-      SHOW_ASCII_ART: "true" # if disabled, ascii art on front page won't show up
+       - AUTO_COPY_DEFAULT: "false" # if enabled, this will automatically copy paste contents to the clipboard on main page
+       - SHOW_ASCII_ART: "true" # if disabled, ascii art on front page won't show up
+
 #    volumes:
      # - ./ascii:/app/ascii # allows for custom ascii art via folder mounting
     restart: always

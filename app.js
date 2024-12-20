@@ -8,6 +8,25 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(cookieParser());
 
+// Environment variable to toggle ASCII art
+const showAsciiArt = process.env.SHOW_ASCII_ART === 'true';
+const asciiArtFolder = process.env.ASCII_ART_FOLDER || path.join(__dirname, 'ascii');
+
+// Get ASCII art files
+const asciiArtFiles = showAsciiArt ? fs.readdirSync(asciiArtFolder).filter(file => file.endsWith('.txt')) : [];
+
+// Serve a random ASCII art
+app.get('/ascii', (req, res) => {
+    if (!showAsciiArt || asciiArtFiles.length === 0) {
+        res.json({ enabled: false });
+        return;
+    }
+
+    const randomFile = asciiArtFiles[Math.floor(Math.random() * asciiArtFiles.length)];
+    const art = fs.readFileSync(path.join(asciiArtFolder, randomFile), 'utf-8');
+    res.json({ enabled: true, art });
+});
+
 const autoCopyDefault = process.env.AUTO_COPY_DEFAULT === 'true';
 
 app.get('/auto-copy-default', (req, res) => {

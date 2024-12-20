@@ -7,5 +7,6 @@ services:
       - "35200:3000"  # change host port if needed
     environment:
       AUTO_COPY_DEFAULT: "false" # if enabled, this will automatically copy paste contents to the clipboard on main page
+      SHOW_ASCII_ART: "true" # if disabled, ascii art on front page won't show up
     restart: always
     container_name: plaster

@@ -23,11 +23,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Redirect to raw paste page
-        const rawPasteUrl = `/${pasteId}`;
+        const frontendUrl = `/${pasteId}`;
+
+        // If auto-copy is enabled, fetch and copy the paste contents
         if (autoCopyCheckbox.checked) {
             try {
-                const response = await fetch(rawPasteUrl);
+                const response = await fetch(frontendUrl);
                 if (response.ok) {
                     const pasteContents = await response.text();
                     await navigator.clipboard.writeText(pasteContents);
@@ -39,7 +40,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 alert('Error copying to clipboard: ' + error.message);
             }
         }
-        window.location.href = `/${pasteId}`
+
+        // Redirect to the frontend paste URL
+        window.location.href = frontendUrl;
     });
 });
 
@@ -73,3 +76,4 @@ function setCookie(name, value, days) {
 function getCookie(name) {
     const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
     return match ? decodeURIComponent(match[1]) : null;
+}

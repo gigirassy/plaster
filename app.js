@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(cookieParser());
 
-const autoCopyDefault = process.env.AUTO_COPY_DEFAULT === 'false';
+const autoCopyDefault = process.env.AUTO_COPY_DEFAULT === 'true';
 
 app.get('/auto-copy-default', (req, res) => {
     res.json({ autoCopyDefault });

@@ -10,7 +10,8 @@
     "pastebin",
     "viewer",
     "nodejs",
-    "express"
+    "express",
+    "cookie-parser"
   ],
   "author": "nune",
   "license": "CC0",

@@ -1,10 +1,18 @@
 const express = require('express');
 const fetch = require('node-fetch');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
+app.use(cookieParser());
+
+const autoCopyDefault = process.env.AUTO_COPY_DEFAULT === 'false';
+
+app.get('/auto-copy-default', (req, res) => {
+    res.json({ autoCopyDefault });
+});
 
 // Route to handle raw Pastebin requests
 app.get('/:pasteId', async (req, res) => {

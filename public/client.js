@@ -13,6 +13,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         setCookie('autoCopyEnabled', autoCopyCheckbox.checked, 365);
     });
 
+        // Fetch ASCII art and display it
+    try {
+        const response = await fetch('/ascii');
+        const data = await response.json();
+        if (data.enabled) {
+            const asciiArtContainer = document.getElementById('asciiArtContainer');
+            asciiArtContainer.textContent = data.art;
+        }
+    } catch (error) {
+        console.error('Failed to fetch ASCII art:', error);
+    }
+
     // Handle "Go to Raw Paste" button click
     fetchBtn.addEventListener('click', async () => {
         const urlInput = pasteUrlInput.value.trim();

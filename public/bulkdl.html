@@ -83,7 +83,9 @@
     <p>enter up to 64 pastebin urls or ids, one line each to download in a handy little zip!:</p>
     <form id="bulkDownloadForm" method="POST" action="/bulk-download" enctype="application/x-www-form-urlencoded">
         <textarea name="pasteIds" rows="10" cols="50" placeholder="enter here, then solve the captcha"></textarea>
-        <div id="captchaContainer"></div>
+        <label for="captchaToken">enter:</label><br>
+        <img id="captchaImage" alt="Captcha Image"><br>
+        <input type="text" id="captchaToken" required><br>
         <button type="submit">go!</button>
     </form>
     <script src="/captcha.js" defer></script>

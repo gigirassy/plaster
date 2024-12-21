@@ -88,7 +88,51 @@
         <input type="text" id="captchaToken" required><br>
         <button type="submit">go!</button>
     </form>
-    <script src="/captcha.js" defer></script>
+  <script defer>
+        let captchaToken = '';
+
+        // Fetch the CAPTCHA image when the page loads
+        async function loadCaptcha() {
+            const response = await fetch('/captcha');
+            const data = await response.json();
+            captchaToken = data.token;
+            document.getElementById('captchaImage').src = 'data:image/gif;base64,' + data.image;
+        }
+
+        loadCaptcha();
+
+        // Handle form submission
+        document.getElementById('bulkDownloadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const pasteIds = document.getElementById('pasteIds').value.split(',').map(id => id.trim());
+            if (pasteIds.length === 0) {
+                alert('Please enter at least one paste ID.');
+                return;
+            }
+
+            const response = await fetch('/bulk-download', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: 'user123',  // In a real app, get this from the logged-in user
+                    pasteIds: pasteIds,
+                    captchaToken: captchaToken,
+                }),
+            });
+
+            if (response.ok) {
+                const blob = await response.blob();
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'pastes.zip';
+                link.click();
+            } else {
+                const errorData = await response.json();
+                alert(errorData.message || 'An error occurred.');
+            }
+        });
+    </script>
     <div id="asciiArtContainer" aria-hidden="true" style="position: fixed; bottom: 0; right: 0; padding: 10px; font-family: monospace; white-space: pre;"></div>
 </body>
 </html>

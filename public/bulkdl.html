@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plaster bulk downloader</title>
+    <style>
+        /* Default Light Mode */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #0066cc;
+            --border-color: #ddd;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1e1e1e;
+                --text-color: #ffffff;
+                --link-color: #4db8ff;
+                --border-color: #444;
+            }
+        }
+
+        body {
+            font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+            margin: 0px;
+            background-color: var(--bg-color);
+            text-align:center;
+            color: var(--text-color);
+        }
+
+        .main {
+            text-align:center;
+            width:75%;
+        }
+        
+        .footer {
+            font-size:60%;
+        }
+
+        input, button {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+
+        a {
+            color: var(--link-color);
+        }
+
+        #asciiArtContainer {
+            position: fixed;
+            z-index: -289;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre;
+        }
+        
+        @media (max-width: 768px) {
+            /* For tablets and small screens */
+            #asciiArtContainer {
+                font-size: 0.5rem; /* Slightly smaller font */
+                padding: 8px;      /* Reduced padding */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* For mobile devices */
+            #asciiArtContainer {
+                font-size: 0.3rem; /* Smaller font size for mobile */
+                padding: 5px;      /* Minimal padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>bulk paste download</h1>
+    <p>enter up to 64 pastebin urls or ids, one line each to download in a handy little zip!:</p>
+    <form id="bulkDownloadForm" method="POST" action="/bulk-download" enctype="application/x-www-form-urlencoded">
+        <textarea name="pasteIds" rows="10" cols="50" placeholder="enter here, then solve the captcha"></textarea>
+        <div id="captchaContainer"></div>
+        <button type="submit">go!</button>
+    </form>
+    <script src="/captcha.js" defer></script>
+    <div id="asciiArtContainer" aria-hidden="true" style="position: fixed; bottom: 0; right: 0; padding: 10px; font-family: monospace; white-space: pre;"></div>
+</body>
+</html>
